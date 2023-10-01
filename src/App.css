@@ -1,0 +1,50 @@
+.row {
+  display: flex;
+}
+.center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gap {
+  gap: 1rem;
+}
+.main-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1rem;
+}
+.card-img-top {
+  max-height: 200px !important;
+}
+.card-container {
+  text-align: center;
+}
+.spinner-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.cst-btn {
+  border: none;
+  outline: none;
+}
+.offcanvas {
+  overflow: auto !important;
+}
+.cartCardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .main-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 500px) {
+  .main-container {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
