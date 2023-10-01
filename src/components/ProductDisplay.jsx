@@ -6,13 +6,13 @@ import { addBtnStat } from "../redux/store/slices/items-slice";
 // import { useSelector } from "react-redux";
 
 const ProductDisplay = ({ data }) => {
+  const dispatch = useDispatch();
   const btnStat = data.map((item) => {
     return {
       id: item.id,
       btnStat: true,
     };
   });
-  const dispatch = useDispatch();
   dispatch(addBtnStat(btnStat));
 
   const getCardDetails = (e, value) => {
