@@ -6,7 +6,7 @@ import { addBtnStat } from "../redux/store/slices/items-slice";
 
 const CustomCard = ({ operation, value, ...props }) => {
   const { data } = props;
-  const [checkStat, setStat] = useState(true);
+  // const [checkStat, setStat] = useState(true);
   const [stat, setStatO] = useState([]);
   const dispatch = useDispatch();
   const btnStatus = useSelector((state) => state.itemsStat.setBtnStat[0]);
@@ -44,7 +44,7 @@ const CustomCard = ({ operation, value, ...props }) => {
             id={data.id}
             onClick={(event) => {
               handleCheckStat(stat);
-              operation(event);
+              operation(data.id);
             }}
             variant="primary"
           >
