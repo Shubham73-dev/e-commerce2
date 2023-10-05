@@ -9,7 +9,6 @@ const itemSlice = createSlice({
     addBtnStat(state, action) {
       state.setBtnStat = [];
       state.setBtnStat.push(action.payload);
-      console.log(state.setBtnStat);
     },
     toggleBtnStat(state, action) {
       const { id } = action.payload;

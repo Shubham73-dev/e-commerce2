@@ -10,16 +10,21 @@ const CustomCard = ({ operation, value, ...props }) => {
   const [stat, setStatO] = useState([]);
   const dispatch = useDispatch();
   const btnStatus = useSelector((state) => state.itemsStat.setBtnStat[0]);
+  const chkst = () => {
+    const matchingItems = btnStatus.filter((item) => item.id === data.id);
+    const mtd = matchingItems.map((matchingItem) => matchingItem.btnStat);
+    return mtd[0];
+  };
   useEffect(() => {
     const statO = btnStatus.filter((item) => item.id === data.id);
     setStatO(statO[0]);
     // setStat(stat[0]?.btnStat);
-  }, [btnStatus, data.id]);
+  }, [btnStatus, data.id, chkst()]);
   const handleCheckStat = (status) => {
-    setStat(!checkStat);
+    let func = chkst();
     const newStatus = {
       id: status.id,
-      btnStat: !checkStat,
+      btnStat: !func,
     };
     const updatebtnStatus = btnStatus.filter((item) => item.id !== status.id);
     updatebtnStatus.push(newStatus);
@@ -43,7 +48,7 @@ const CustomCard = ({ operation, value, ...props }) => {
             }}
             variant="primary"
           >
-            {checkStat ? "Add to Cart" : "Remove from cart"}
+            {chkst() ? "Add to Cart" : "Remove from cart"}
           </Button>
         </Card.Body>
       </Card>
